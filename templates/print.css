@@ -1,0 +1,92 @@
+@page {
+    size: A4;
+    margin: 1.8cm;
+}
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    body {
+        margin: 0;
+        background: #fff !important;
+        font-size: 11pt;
+    }
+
+    .print-controls, .navbar, .form-sidebar, .preview-header, .form-navigation {
+        display: none !important;
+    }
+
+    .builder-container {
+        display: block !important;
+        grid-template-columns: none !important;
+    }
+    
+    .preview-section {
+        display: block !important;
+        padding: 0 !important;
+        background: white !important;
+    }
+    
+    .preview-container {
+        display: block !important;
+    }
+
+    .resume-container {
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        transform: none !important;
+        background: white !important;
+        max-width: none !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    
+
+    
+
+
+    section {
+        margin-bottom: 20px !important;
+    }
+
+    .section-title {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    /* Allow sections to break but keep related content together */
+    ul, ol {
+        break-inside: auto;
+        page-break-inside: auto;
+    }
+
+    li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        orphans: 2;
+        widows: 2;
+    }
+
+    /* Prevent orphaned content */
+    * {
+        orphans: 2;
+        widows: 2;
+    }
+
+    /* Maintain readability */
+    body {
+        font-size: 11pt !important;
+        line-height: 1.4 !important;
+    }
+}

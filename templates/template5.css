@@ -1,0 +1,153 @@
+/* Modern Clean */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #fafafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.resume-container {
+    background: #fff;
+    padding: 2cm;
+    margin: auto;
+    max-width: 800px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    border-top: 8px solid #e53e3e;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 0;
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 10px;
+}
+
+.name {
+    font-size: 2.8em;
+    font-weight: 300;
+    color: #2d3748;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.contact {
+    color: #718096;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.section-title {
+    color: #e53e3e;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 30px 0 20px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e53e3e;
+    position: relative;
+}
+
+.section-title:before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+}
+
+section {
+    margin-bottom: 30px;
+    orphans: 2;
+    widows: 2;
+}
+
+section > h3,
+section > p,
+section > ul {
+    margin-left: 20px;
+}
+
+.experience-item {
+    margin-bottom: 25px;
+}
+
+h3 {
+    page-break-after: avoid;
+    orphans: 2;
+    widows: 2;
+}
+
+ul, ol {
+    orphans: 2;
+    widows: 2;
+}
+
+li {
+    orphans: 1;
+    widows: 1;
+}
+
+h3 {
+    color: #2d3748;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+p, li {
+    color: #4a5568;
+    font-size: 0.95em;
+    margin: 8px 0;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.print-controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.print-controls button {
+    padding: 12px 25px;
+    background: #e53e3e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.print-controls button:hover {
+    background: #c53030;
+}
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .resume-container {
+        border-top: 8px solid #e53e3e !important;
+    }
+    
+    .header {
+        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%) !important;
+    }
+    
+    .section-title {
+        color: #e53e3e !important;
+        border-bottom: 2px solid #e53e3e !important;
+    }
+    
+
+}

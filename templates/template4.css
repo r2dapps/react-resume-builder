@@ -1,0 +1,178 @@
+/* Classic Elegant */
+body {
+    font-family: 'Garamond', serif;
+    background: #f9f7f4;
+    color: #3c2415;
+    line-height: 1.8;
+}
+
+.resume-container {
+    background: #fff;
+    padding: 2cm;
+    margin: auto;
+    max-width: 800px;
+    border-right: 3px double #8b4513;
+    box-shadow: 0 0 20px rgba(139, 69, 19, 0.1);
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px solid #8b4513;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.name {
+    font-size: 3em;
+    font-weight: normal;
+    color: #8b4513;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+}
+
+.contact {
+    color: #654321;
+    font-size: 1em;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.section-title {
+    color: #8b4513;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid #d2b48c;
+    border-bottom: 1px solid #d2b48c;
+    padding: 10px 0;
+    margin: 25px 0 20px 0;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section > h3,
+section > p,
+section > ul {
+    margin-left: 20px;
+}
+
+.experience-item {
+    margin-bottom: 20px;
+}
+
+h3 {
+    page-break-after: avoid;
+}
+
+h3 {
+    color: #654321;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+p, li {
+    color: #3c2415;
+    font-size: 1em;
+    text-align: justify;
+}
+
+ul {
+    padding-left: 30px;
+}
+
+.print-controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.print-controls button {
+    padding: 12px 25px;
+    background: #8b4513;
+    color: #fff;
+    border: 2px solid #654321;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+    font-family: 'Garamond', serif;
+}
+
+.print-controls button:hover {
+    background: #654321;
+    border-color: #8b4513;
+}
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    @page {
+        size: A4;
+        margin: 1.8cm;
+    }
+    
+    body {
+        background: white !important;
+        font-size: 11pt !important;
+        line-height: 1.6 !important;
+    }
+    
+    .resume-container {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 15px !important;
+        box-shadow: none !important;
+        background: white !important;
+        border-right: 3px double #8b4513 !important;
+    }
+    
+    .header {
+        border-bottom: 2px solid #8b4513 !important;
+        page-break-inside: avoid;
+        page-break-after: avoid;
+    }
+    
+    .section-title {
+        color: #8b4513 !important;
+        border-top: 1px solid #d2b48c !important;
+        border-bottom: 1px solid #d2b48c !important;
+        page-break-inside: avoid;
+        page-break-after: avoid;
+    }
+    
+    section {
+        orphans: 2;
+        widows: 2;
+    }
+    
+    .experience-item {
+        margin-bottom: 15px;
+    }
+    
+    h3 {
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+    }
+    
+    ul, ol {
+        orphans: 2;
+        widows: 2;
+    }
+    
+    li {
+        orphans: 1;
+        widows: 1;
+    }
+    
+    .print-controls {
+        display: none;
+    }
+}
