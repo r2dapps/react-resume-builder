@@ -104,7 +104,10 @@ const Builder = () => {
       ...prev,
       personalInfo: { ...prev.personalInfo, ...data.personalInfo },
       summary: data.summary || prev.summary,
-      skills: data.skills.categories[0].list ? data.skills : prev.skills
+      experience: data.experience?.length > 0 ? data.experience : prev.experience,
+      education: data.education?.length > 0 ? data.education : prev.education,
+      projects: data.projects?.length > 0 ? data.projects : prev.projects,
+      skills: data.skills?.categories?.length > 0 ? data.skills : prev.skills
     }));
   };
 
