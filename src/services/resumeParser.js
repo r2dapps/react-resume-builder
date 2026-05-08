@@ -12,7 +12,26 @@ export const extractTextFromPDF = async (file) => {
   for (let i = 1; i <= pdf.numPages; i++) {
     const page = await pdf.getPage(i);
     const textContent = await page.getTextContent();
-    const pageText = textContent.items.map(item => item.str).join(' ');
+    
+    // Sort items by vertical position (Y) and then horizontal position (X)
+    const items = textContent.items.sort((a, b) => {
+      if (Math.abs(a.transform[5] - b.transform[5]) < 5) { // Same line (threshold of 5 units)
+        return a.transform[4] - b.transform[4];
+      }
+      return b.transform[5] - a.transform[5]; // Top to bottom
+    });
+
+    let lastY = -1;
+    let pageText = '';
+    
+    for (const item of items) {
+      if (lastY !== -1 && Math.abs(item.transform[5] - lastY) > 5) {
+        pageText += '\n';
+      }
+      pageText += item.str + ' ';
+      lastY = item.transform[5];
+    }
+    
     fullText += pageText + '\n';
   }
   
@@ -54,10 +73,14 @@ export const parseResumeText = (text) => {
 
   // Extract Name (usually first line if not a label)
   if (lines.length > 0) {
-    const firstLine = lines[0];
-    if (!firstLine.toLowerCase().includes('resume') && !firstLine.toLowerCase().includes('curriculum')) {
-      data.personalInfo.fullName = firstLine.replace(/[^a-zA-Z\s]/g, '').trim();
+    let firstLine = lines[0];
+    if (firstLine.toLowerCase().includes('resume') || firstLine.toLowerCase().includes('curriculum')) {
+      firstLine = lines[1] || '';
     }
+    
+    // Safety check for lumped lines
+    const nameOnly = firstLine.split(/(Mobile|Phone|Email|Gmail|Id:)/i)[0];
+    data.personalInfo.fullName = nameOnly.replace(/[^a-zA-Z\s]/g, '').trim();
   }
 
   // Section-based extraction
